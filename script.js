@@ -63,7 +63,7 @@ function startTimer() {
   if (setIntervalTime === null) {
     setIntervalTime = setInterval(function () {
       time++;
-      timer.innerText = "Time: " + time;
+      timer.innerText = "Time: " + time+"S";
     }, 1000);
   }
 }
@@ -102,7 +102,7 @@ function resetGame() {
   disableDeck = false;
   cardOne = cardTwo = "";
   moves = 0;
-  time = 0;
+  time = 0+"S";
   timer.innerText = "Time: " + time;
   matchedElement.textContent = "Matched: " + matched;
   movesElement.innerText = "Moves used: " + moves;

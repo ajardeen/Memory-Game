@@ -140,3 +140,32 @@ body {
   font-size: 20px;
   font-weight: 600;
 }
+@media screen and (max-width: 768px) {
+  #game-results {
+    font-size: 1rem;
+  }
+  #game-board {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .container {
+    width: 100px;
+    height: 100px;
+  }
+ 
+  
+}
+@media screen and (max-width: 375px) {
+  #game-results {
+    font-size: 1rem;
+    gap: 10px;
+  }
+  #game-board {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .container {
+    width: 70px;
+    height: 70px;
+  }
+ 
+  
+}
