@@ -17,11 +17,9 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #e5e5f7;
-
-background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
-background-size: 10px 10px;
+  background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+  background-size: 10px 10px;
 }
-
 
 #mainContainer {
   display: flex;
@@ -74,8 +72,13 @@ background-size: 10px 10px;
 }
 .card-front {
   transform: rotateY(0deg);
-background-color: #e5e5f7;
-background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #444cf755, #444cf7 );
+  background-color: #e5e5f7;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #e5e5f7 10px
+    ),
+    repeating-linear-gradient(#444cf755, #444cf7);
 }
 
 .card-back {
@@ -86,9 +89,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e
 .card-back img {
   object-fit: fill;
 }
-/* .container .card:hover{
-    transform: rotateY(180deg);
-} */
+/* flip card class will be added when click in javaScript  */
 .card.flip .card-back {
   transform: rotateY(0);
 }
