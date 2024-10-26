@@ -12,14 +12,19 @@ function matchCard(cardOneImg, cardTwoImg) {
   if (cardOneImg === cardTwoImg) {
     matched++; //matched is increased by 1
     matchedElement.textContent = "Matched: " + matched;
-    if (matched === 6) { //if matched is 6 then all cards are matched
+    if (matched === 6) {
+      //if matched is 6 then all cards are matched
       stopTimer();
     }
     cardOne.removeEventListener("click", flipCard);
     cardTwo.removeEventListener("click", flipCard);
     cardOne = cardTwo = "";
     return (disableDeck = false);
-  } else if (cardOne !== cardTwo) { //if cards are not matched flip back to original state
+  } else if (cardOne !== cardTwo) {
+    // if not matched added back to listens for click event again
+    cardOne.addEventListener("click", flipCard);
+    cardTwo.addEventListener("click", flipCard);
+    //if cards are not matched flip back to original state
     setTimeout(() => {
       cardOne.classList.add("shake");
       cardTwo.classList.add("shake");
@@ -34,20 +39,26 @@ function matchCard(cardOneImg, cardTwoImg) {
 }
 
 function flipCard(e) {
-  if (time === 0) { //if time is 0 then start timer to count how much time is taken to match all cards
+  if (time === 0) {
+    //if time is 0 then start timer to count how much time is taken to match all cards
     startTimer();
   }
 
   let clickedCard = e.target.parentElement;
-  if (cardOne !== clickedCard && !disableDeck) {  //if card is not clicked then flip card and add class flip to card
-    moves++;  //moves is increased by 1
-    movesElement.innerText = "Moves used: " + moves; 
+  if (cardOne !== clickedCard && !disableDeck) {
+    //if card is not clicked then flip card and add class flip to card
+    moves++; //moves is increased by 1
+    movesElement.innerText = "Moves used: " + moves;
     clickedCard.classList.add("flip");
-    if (!cardOne) { //if card is not clicked then flip card and add class flip to card
+    if (!cardOne) {
+      // i remove click event when clicked card and add back again validation in matchCard function
+      // this will prevent from adding multiple click event to same card
+      clickedCard.removeEventListener("click", flipCard);
+      //if card is not clicked then flip card and add class flip to card
       return (cardOne = clickedCard);
     }
     cardTwo = clickedCard;
-    disableDeck = true;   
+    disableDeck = true;
     let cardOneImg = cardOne.querySelector(".card-back img").src,
       cardTwoImg = cardTwo.querySelector(".card-back img").src;
     matchCard(cardOneImg, cardTwoImg);
@@ -63,7 +74,7 @@ function startTimer() {
   if (setIntervalTime === null) {
     setIntervalTime = setInterval(function () {
       time++;
-      timer.innerText = "Time: " + time+"S";
+      timer.innerText = "Time: " + time + "S";
     }, 1000);
   }
 }
@@ -103,7 +114,7 @@ function resetGame() {
   cardOne = cardTwo = "";
   moves = 0;
   time = 0;
-  timer.innerHTML = "Time: " + time+"<span>S</span>";
+  timer.innerHTML = "Time: " + time + "<span>S</span>";
   matchedElement.textContent = "Matched: " + matched;
   movesElement.innerText = "Moves used: " + moves;
   stopTimer();
