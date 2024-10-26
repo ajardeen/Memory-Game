@@ -28,6 +28,7 @@ function matchCard(cardOneImg, cardTwoImg) {
             <h4>Moves Used :${moves}</h4>
             <h4>Matched :${matched}</h4>
           </div>
+           <h4>Timing :${time} Seconds</h4>
             <button id="close-result">Close</button>
           </span>`;
         // close result board feature

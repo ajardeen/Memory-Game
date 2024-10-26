@@ -185,15 +185,50 @@ body {
   width: 100%;
   transition: all 0.5s ease-in-out;
 }
+
+@keyframes resultboard {
+  0% {
+    box-shadow: rgba(46, 46, 240, 0.4) 0px 5px,
+      rgba(46, 46, 240, 0.3) 0px 10px, rgba(46, 46, 240, 0.2) 0px 15px,
+      rgba(46, 46, 240, 0.1) 0px 20px, rgba(46, 46, 240, 0.05) 0px 25px;
+  }
+  10% {
+    box-shadow: rgba(46, 240, 240, 0.4) 0px 5px,
+      rgba(46, 240, 240, 0.3) 0px 10px, rgba(46, 240, 240, 0.2) 0px 15px,
+      rgba(46, 240, 240, 0.1) 0px 20px, rgba(46, 240, 240, 0.05) 0px 25px;
+  }
+  50% {
+    box-shadow: rgba(240, 208, 46, 0.4) 0px 5px,
+      rgba(240, 208, 46, 0.3) 0px 10px, rgba(240, 208, 46, 0.2) 0px 15px,
+      rgba(240, 208, 46, 0.1) 0px 20px, rgba(240, 208, 46, 0.05) 0px 25px;
+  }
+  100% {
+    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px,
+      rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px,
+      rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+  }
+}
+
 #result-board span {
   font-size: 1.3rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 10px;
+  min-height: 300px;
+  background: rgba(255, 255, 255, 0.63);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15.5px);
+  -webkit-backdrop-filter: blur(15.5px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  animation: resultboard 3s ease-in-out 1.5s infinite;
 }
 #scores {
-display: flex;
-gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 #close-result {
   margin-top: 30px;
