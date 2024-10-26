@@ -102,8 +102,8 @@ function resetGame() {
   disableDeck = false;
   cardOne = cardTwo = "";
   moves = 0;
-  time = 0+"S";
-  timer.innerText = "Time: " + time;
+  time = 0;
+  timer.innerHTML = "Time: " + time+"<span>S</span>";
   matchedElement.textContent = "Matched: " + matched;
   movesElement.innerText = "Moves used: " + moves;
   stopTimer();
