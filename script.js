@@ -1,6 +1,7 @@
 const cards = document.querySelectorAll(".card");
 const movesElement = document.getElementById("moves");
 const matchedElement = document.getElementById("matched");
+const body = document.body;
 let matched = 0;
 let cardOne,
   cardTwo = "";
@@ -15,6 +16,23 @@ function matchCard(cardOneImg, cardTwoImg) {
     if (matched === 6) {
       //if matched is 6 then all cards are matched
       stopTimer();
+      setTimeout(() => {
+        let div = document.createElement("div");
+        div.id = "result-board";
+        body.appendChild(div);
+        div.innerHTML = `
+          <span>
+            <h1>Player</h1>
+            <p>You Nailed it</p>
+            <div id="scores">
+            <h4>Moves Used :${moves}</h4>
+            <h4>Matched :${matched}</h4>
+          </div>
+            <button id="close-result">Close</button>
+          </span>`;
+        // close result board feature
+        resultBoardClose();
+      }, 1200);
     }
     cardOne.removeEventListener("click", flipCard);
     cardTwo.removeEventListener("click", flipCard);
@@ -137,3 +155,11 @@ restartBtn.addEventListener("click", () => {
 cards.forEach((card) => {
   card.addEventListener("click", flipCard);
 });
+
+function resultBoardClose() {
+  const closeresult = document.getElementById("close-result");
+  const resultboard = document.getElementById("result-board");
+  closeresult.addEventListener("click", () => {
+    resultboard.style.display = "none";
+  });
+}

@@ -19,6 +19,7 @@ body {
   background-color: #e5e5f7;
   background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
   background-size: 10px 10px;
+  position: relative;
 }
 
 #mainContainer {
@@ -151,8 +152,6 @@ body {
     width: 100px;
     height: 100px;
   }
- 
-  
 }
 @media screen and (max-width: 375px) {
   #game-results {
@@ -166,6 +165,44 @@ body {
     width: 70px;
     height: 70px;
   }
- 
-  
+}
+#result-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  z-index: 10;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.41);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.4px);
+  -webkit-backdrop-filter: blur(11.4px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+#result-board span {
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#scores {
+display: flex;
+gap: 20px;
+}
+#close-result {
+  margin-top: 30px;
+  margin-left: 80px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: transparent;
+}
+#close-result:hover {
+  background-color: #cc2b52;
+  color: white;
 }
