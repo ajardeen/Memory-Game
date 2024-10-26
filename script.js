@@ -29,9 +29,9 @@ function matchCard(cardOneImg, cardTwoImg) {
     setTimeout(() => {
       cardOne.classList.remove("shake", "flip");
       cardTwo.classList.remove("shake", "flip");
-       // if not matched added back to listens for click event again
-       cardOne.addEventListener("click", flipCard);
-       cardTwo.addEventListener("click", flipCard);
+      // if not matched added back to listens for click event again
+      cardOne.addEventListener("click", flipCard);
+      cardTwo.addEventListener("click", flipCard);
       cardOne = cardTwo = "";
       disableDeck = false;
     }, 1200);
@@ -128,7 +128,9 @@ function resetGame() {
 // restart-btn to shuffle cards
 const restartBtn = document.getElementById("restart-btn");
 restartBtn.addEventListener("click", () => {
-  resetGame();
+  if (confirm("Are you sure you want to restart the game?")) {
+    resetGame();
+  }
 });
 // shuffle cards on page load
 
