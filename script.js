@@ -21,9 +21,6 @@ function matchCard(cardOneImg, cardTwoImg) {
     cardOne = cardTwo = "";
     return (disableDeck = false);
   } else if (cardOne !== cardTwo) {
-    // if not matched added back to listens for click event again
-    cardOne.addEventListener("click", flipCard);
-    cardTwo.addEventListener("click", flipCard);
     //if cards are not matched flip back to original state
     setTimeout(() => {
       cardOne.classList.add("shake");
@@ -32,6 +29,9 @@ function matchCard(cardOneImg, cardTwoImg) {
     setTimeout(() => {
       cardOne.classList.remove("shake", "flip");
       cardTwo.classList.remove("shake", "flip");
+       // if not matched added back to listens for click event again
+       cardOne.addEventListener("click", flipCard);
+       cardTwo.addEventListener("click", flipCard);
       cardOne = cardTwo = "";
       disableDeck = false;
     }, 1200);
